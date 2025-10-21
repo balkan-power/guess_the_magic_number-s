@@ -1,5 +1,5 @@
-﻿// AUTHOR: balkan-power
-// VERSION: 1.0
+// AUTHOR: balkan-power
+// VERSION: 1.1
 
 using System;
 
@@ -21,46 +21,63 @@ namespace Helloworld
 
                 Console.WriteLine("");
                 Console.WriteLine("pick a number between 1 through 10 <3");
-                int chosenNumber = Convert.ToInt32(Console.ReadLine()); // converts string user input to 32-bit integer
-                if (chosenNumber > 10 || chosenNumber < 1)
+                int chosenNumber;
+                try
                 {
-                    Console.WriteLine("KYAAAAAAAA~~~! (O_o) u cant choose that! try again latew! u make me angy!!! 3:<");
-                }
-                else
-                {
-                    Console.WriteLine("");
-                    int modeSwitch = rnd.Next(2); // random between 0 and 1
-                    if (modeSwitch == 1)
+                    chosenNumber = Convert.ToInt32(Console.ReadLine()); // converts string user input to 32-bit integer
+                    if (chosenNumber > 10 || chosenNumber < 1)
                     {
-                        if (chosenNumber < aNumberBtwn)
-                        {
-                            Console.WriteLine("oh no!!! {{{(>_<)}}} u chose not cowwectly! so sowwy :''''( bettew wuck next time! ;3");
-                        }
-                        else
-                        {
-                            Console.WriteLine("nyaaah~! ^_^ u did very well 4 ur mommy! ^_~ lemme giv u a kiss!!! *MMMMMWWWA* see u next time~! :3 ;D");
-                        }
+                        Console.WriteLine("KYAAAAAAAA~~~! (O_o) u cant choose that! try again latew! u make me angy!!! 3:<");
                     }
                     else
                     {
-                        if (chosenNumber > aNumberBtwn)
+                        Console.WriteLine("");
+                        int modeSwitch = rnd.Next(2); // random between 0 and 1
+                        if (modeSwitch == 1)
                         {
-                            Console.WriteLine("oh no!!! {{{(>_<)}}} u chose not cowwectly! so sowwy :''''( bettew wuck next time! ;3");
+                            if (chosenNumber < aNumberBtwn)
+                            {
+                                Console.WriteLine("oh no!!! {{{(>_<)}}} u chose not cowwectly! so sowwy :''''( bettew wuck next time! ;3");
+                            }
+                            else
+                            {
+                                Console.WriteLine("nyaaah~! ^_^ u did very well 4 ur mommy! ^_~ lemme giv u a kiss!!! *MMMMMWWWA* see u next time~! :3 ;D");
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("nyaaah~! ^_^ u did very well 4 ur mommy! ^_~ lemme giv u a kiss!!! *MMMMMWWWA* see u next time~! :3 ;D");
+                            if (chosenNumber > aNumberBtwn)
+                            {
+                                Console.WriteLine("oh no!!! {{{(>_<)}}} u chose not cowwectly! so sowwy :''''( bettew wuck next time! ;3");
+                            }
+                            else
+                            {
+                                Console.WriteLine("nyaaah~! ^_^ u did very well 4 ur mommy! ^_~ lemme giv u a kiss!!! *MMMMMWWWA* see u next time~! :3 ;D");
+                            }
                         }
                     }
+                    Console.WriteLine("");
+                    Console.WriteLine("would you like to go again? (^///^) type 'n' or 'no' if you want to quit. press enter if you want to continue.");
+                    string continueAnswer = Console.ReadLine();
+                    if (continueAnswer == "n" || continueAnswer == "no") // if answers no, dont want to continue the program, it breaks and closes off
+                    {
+                        loopProgram = 0;
+                        Console.WriteLine("sad to see u go!!! >ww< PLEASE come back 2 play wit ur favrit cat gurl!!!!11!");
+                        break;
+                    }
                 }
-                Console.WriteLine("");
-                Console.WriteLine("would you like to go again? (^///^) type 'n' or 'no' if you want to quit. press enter if you want to continue.");
-                string continueAnswer = Console.ReadLine();
-                if (continueAnswer == "n" || continueAnswer == "no") // if answers no, dont want to continue the program, it breaks and closes off
+                catch (Exception)
                 {
-                    loopProgram = 0;
-                    Console.WriteLine("sad to see u go!!! >ww< PLEASE come back 2 play wit ur favrit cat gurl!!!!11!");
-                    break;
+                    Console.WriteLine("Dude, just do as she says. Why is that so difficult for you?");
+                    Console.WriteLine("");
+                    Console.WriteLine("would you like to go again? (^///^) type 'n' or 'no' if you want to quit. press enter if you want to continue.");
+                    string continueAnswer = Console.ReadLine();
+                    if (continueAnswer == "n" || continueAnswer == "no") // if answers no, dont want to continue the program, it breaks and closes off
+                    {
+                        loopProgram = 0;
+                        Console.WriteLine("sad to see u go!!! >ww< PLEASE come back 2 play wit ur favrit cat gurl!!!!11!");
+                        break;
+                    }
                 }
             }
         }
